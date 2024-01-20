@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/login-signup.css">
+    <title>Login-Page</title>
+</head>
+
+<body>
+
+
+    <div class="form">
+        <div class="login_box">
+
+            
+            <form method = "POST" >
+                <h1>Login</h1>
+            {% csrf_token %}  
+            
+            {% if error_message %}
+            <ul class="messages">
+                <ul>{{ error_message }}</ul>
+            </ul>
+            {% endif %}
+ 
+
+            <p>Hey there! Enter your details to get sign in to your account.</p>
+
+            
+            <input type="text" name = 'username' placeholder="Username" class="Username" id="username">
+            
+            <input type="password" name = 'pass' class="password" placeholder="Password" id="password">
+          
+            <button class="sign_in" style="margin-top: 15px;"> Login </button>
+            
+            <p>Don't have an account? <span ><a class="nav-link" href="{% url "signup" %}">Ragister here</a></span></p>
+            </form>
+
+      
+        </div>
+        
+    </div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo {
+    margin: 0 1.5rem;
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #59D50E;
+}
+
+.btns {
+    display: flex;
+    margin: 1rem 0.9rem;
+}
+
+button {
+    font-size: 1rem;
+    padding: 8px 20px;
+    color: white;
+    background-color: #0176C3;
+    border: none;
+    border-radius: 10px;
+    margin: 0 1rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-text {
+    margin: 2rem 2rem;
+    font-size: 1.5rem;
+    font: 700;
+    align-items: center;
+    text-align: center;
+}
+
+/* card css start */
+
+:root {
+    /* COLORS */
+    --gray-7: hsl(0deg 0% 7%);
+    --gray-13: hsl(0deg 0% 13%);
+    --gray-30: hsl(0deg 0% 30%);
+    --gray-70: hsl(0deg 0% 70%);
+    --gray-90: hsl(0deg 0% 90%);
+
+    /* FONTS */
+    --main-font: "Bricolage Grotesque", Trebuchet MS, Lucida Grande,
+        Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;
+
+    --min-font-size: 0.8125rem;
+    --max-font-size: 1rem;
+    --base-font-size: clamp(var(--min-font-size), 2.5vw, var(--max-font-size));
+
+    --base-line-height: 1;
+}
+
+*,
+*::before,
+*::after {
+    font-kerning: auto;
+    font-variant-ligatures: common-ligatures contextual;
+    font-variant-numeric: lining-nums proportional-nums;
+}
+
+
+.cards-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 64rem;
+    margin: 2rem auto;
+    padding: 1em;
+    gap: 1.5em;
+
+    @media (width < 40rem) {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        display: grid;
+        grid-template:
+            "avatar author" 3.125rem
+            "article-content article-content"
+            / 3.125rem 1fr;
+        padding: 1em;
+        border-radius: 0.25rem;
+        /* background-color: var(--gray-13); */
+        background-color: #f2f2f2;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+        gap: 1em;
+
+        @media (width < 40rem) {
+            grid-template-areas:
+                "avatar author"
+                ". article-content";
+        }
+
+        @media (width >=40rem) {
+            &:last-child:nth-child(odd) {
+                grid-column: 1 / span 2;
+                grid-template-areas:
+                    "avatar author"
+                    ". article-content";
+            }
+        }
+
+        .avatar {
+            grid-area: avatar;
+            height: 3.125rem;
+            border-radius: 100%;
+            outline: 0.125rem solid var(--gray-30);
+            aspect-ratio: 1 / 1;
+        }
+
+        .author {
+            display: flex;
+            grid-area: author;
+            flex-direction: column;
+            justify-content: center;
+            height: 3.125rem;
+            gap: 0.25em;
+
+            .name,
+            .position {
+                width: 100%;
+                margin: 0;
+                font-size: var(--base-font-size);
+            }
+
+            .name {
+                font-weight: 800;
+            }
+
+            .position {
+                color: var(--gray-70);
+            }
+        }
+
+        .article-content {
+            display: grid;
+            grid-area: article-content;
+            grid-template-rows: auto 1fr;
+            gap: 1em;
+
+            .title {
+                margin: 0;
+                font-size: 1.625em;
+                text-transform: uppercase;
+            }
+
+            .snippet {
+                align-self: start;
+                overflow: hidden;
+                color: var(--gray-70);
+                line-height: 1.75;
+                text-overflow: ellipsis;
+
+                & p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+
+
+/* card css end */
+
+
+
+.social-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 4rem;
+}
+
+
+/* icon css start*/
+
+.social-icon a {
+    margin: 20px 30px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+/* icon css end*/
